@@ -122,7 +122,7 @@ chown -R vnstat:vnstat /var/lib/vnstat
 # install squid3
 cd
 apt-get -y install squid3
-wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/squid3.conf"
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/squid3.conf"
 sed -i $MYIP2 /etc/squid/squid.conf;
 /etc/init.d/squid restart
 
@@ -177,7 +177,7 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 /etc/init.d/stunnel4 restart
 
 # common password debian 
-wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/common-password-deb9"
+wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/common-password-deb9"
 chmod +x /etc/pam.d/common-password
 
 
@@ -258,7 +258,7 @@ chmod +x /usr/bin/build
 chmod +x /etc/rc.local
 
 # Custom Banner SSH
-wget -O /etc/issue.net "https://github.com/idtunnel/sshtunnel/raw/master/debian9/banner-custom.conf"
+wget -O /etc/issue.net "raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/banner-custom.conf"
 chmod +x /etc/issue.net
 
 echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
@@ -297,17 +297,17 @@ echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
 
 # download script
 cd /usr/bin
-wget -O menu "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/menu.sh"
-wget -O usernew "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/usernew.sh"
-wget -O trial "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/trial.sh"
-wget -O hapus "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/hapus.sh"
-wget -O cek "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/user-login.sh"
-wget -O member "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/user-list.sh"
-wget -O jurus69 "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/restart.sh"
-wget -O speedtest "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/speedtest_cli.py"
-wget -O info "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/info.sh"
-wget -O about "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/about.sh"
-wget -O delete "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/delete.sh"
+wget -O menu "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/menu.sh"
+wget -O usernew "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/usernew.sh"
+wget -O trial "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/trial.sh"
+wget -O hapus "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/hapus.sh"
+wget -O cek "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/user-login.sh"
+wget -O member "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/user-list.sh"
+wget -O jurus69 "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/restart.sh"
+wget -O speedtest "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/speedtest_cli.py"
+wget -O info "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/info.sh"
+wget -O about "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/about.sh"
+wget -O delete "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/delete.sh"
 
 echo "0 0 * * * root /sbin/reboot" > /etc/cron.d/reboot
 
@@ -384,7 +384,7 @@ rm -f /root/openssh.sh
 echo "================  install OPENVPN  saya disable======================"
 echo "========================================================="
 # install openvpn debian 9 ( openvpn port 1194 dan 443 )
-wget https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/openvpn.sh && chmod +x openvpn.sh && bash openvpn.sh
+wget https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/openvpn.sh && chmod +x openvpn.sh && bash openvpn.sh
 
 echo "==================== Restart Service ===================="
 echo "========================================================="
