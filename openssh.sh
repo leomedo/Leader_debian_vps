@@ -8,13 +8,13 @@ MYIP=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*
 MYIP2="s/xxxxxxxxx/$MYIP/g";
 
 # detail nama perusahaan
-country=ID
+country=Egypt
 state=Semarang
-locality=JawaTengah
-organization=sulaimanssh
+locality=giza
+organization=opseror
 organizationalunit=SLSSH
-commonname=telkomsel.com
-email=sulaiman.xl@facebook.com
+commonname=leomedo
+email=mphamed.medoo@gmail.com
 
 # go to root
 cd
