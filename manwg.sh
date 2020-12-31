@@ -10,7 +10,7 @@ echo "0 0 * * * root /sbin/reboot" > /etc/cron.d/reboot
 
 
 #auto deleted rules Password linux 
-wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/common-password-deb9"
+wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/common-password-deb9"
 chmod +x /etc/pam.d/common-password
 
 #manajemen akun WG
