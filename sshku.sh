@@ -9,12 +9,12 @@ MYIP=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*
 MYIP2="s/xxxxxxxxx/$MYIP/g";
 
 # detail nama perusahaan
-country=Egypt
-state=vps
-locality=Mohamed Khaled
-organization=t.me/OpsEror
+country=ID
+state=Vps
+locality=MohamedKhaled
+organization=opseror
 organizationalunit=SLSSH
-commonname=LeoMedo
+commonname=leomedo
 email=mphamed.medoo@gmail.com
 
 # go to root
