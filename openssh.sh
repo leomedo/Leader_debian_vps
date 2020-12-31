@@ -8,9 +8,9 @@ MYIP=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*
 MYIP2="s/xxxxxxxxx/$MYIP/g";
 
 # detail nama perusahaan
-country=Egypt
+country=ID
 state=Semarang
-locality=giza
+locality=MohamedKhaled
 organization=opseror
 organizationalunit=SLSSH
 commonname=leomedo
