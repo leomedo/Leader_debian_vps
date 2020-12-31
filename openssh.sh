@@ -9,9 +9,9 @@ MYIP2="s/xxxxxxxxx/$MYIP/g";
 
 # detail nama perusahaan
 country=ID
-state=Semarang
+state=Vps
 locality=MohamedKhaled
-organization=opseror
+organization=t.me/opseror
 organizationalunit=SLSSH
 commonname=leomedo
 email=mphamed.medoo@gmail.com
