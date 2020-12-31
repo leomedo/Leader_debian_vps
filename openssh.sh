@@ -10,8 +10,8 @@ MYIP2="s/xxxxxxxxx/$MYIP/g";
 # detail nama perusahaan
 country=Egypt
 state=vps
-locality=Mohamed Khaled
-organization=OpsEror
+locality=MohamedKhaled
+organization=t.me/OpsEror
 organizationalunit=SLSSH
 commonname=LeoMedo
 email=mphamed.medoo@gmail.com
