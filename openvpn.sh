@@ -37,10 +37,10 @@ cd
 sudo apt-get -y install nginx
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/nginx-default.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/nginx-default.conf"
 mkdir -p /home/vps/public_html
 echo "<?php phpinfo() ?>" > /home/vps/public_html/info.php
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/vhost-nginx.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/vhost-nginx.conf"
 /etc/init.d/nginx restart
 
 # instal nginx php5.6 
@@ -59,10 +59,10 @@ cd
 
 
 # Edit port apache2 ke 8090
-wget -O /etc/apache2/ports.conf "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/apache2.conf"
+wget -O /etc/apache2/ports.conf "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/apache2.conf"
 
 # Edit port virtualhost apache2 ke 8090
-wget -O /etc/apache2/sites-enabled/000-default.conf "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/virtualhost.conf"
+wget -O /etc/apache2/sites-enabled/000-default.conf "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/virtualhost.conf"
 
 # restart apache2
 /etc/init.d/apache2 restart
@@ -79,7 +79,7 @@ mkdir /etc/openvpn/easy-rsa/keys
 
 # Kemudian edit file variabel easy-rsa
 # nano /etc/openvpn/easy-rsa/vars
-wget -O /etc/openvpn/easy-rsa/vars "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/vars.conf"
+wget -O /etc/openvpn/easy-rsa/vars "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/vars.conf"
 # edit projek export KEY_NAME="white-vps"
 # Save dan keluar dari editor
 
@@ -411,7 +411,7 @@ iptables -A POSTROUTING -t nat -j MASQUERADE
 iptables-save > /etc/iptables-opvpn.conf
 
 # Restore iptables
-wget -O /etc/network/if-up.d/iptables "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/iptables-local"
+wget -O /etc/network/if-up.d/iptables "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/iptables-local"
 chmod +x /etc/network/if-up.d/iptables
 
 # Restore iptables rc.local
@@ -421,23 +421,23 @@ chmod +x /etc/network/if-up.d/iptables
 # install squid3
 cd
 apt-get -y install squid3
-wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/squid3.conf"
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/squid3.conf"
 sed -i $MYIP2 /etc/squid/squid.conf;
 /etc/init.d/squid restart
 
 # download script
 cd /usr/bin
-wget -O menu "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/menu.sh"
-wget -O usernew "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/usernew.sh"
-wget -O trial "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/trial.sh"
-wget -O hapus "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/hapus.sh"
-wget -O cek "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/user-login.sh"
-wget -O member "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/user-list.sh"
-wget -O jurus69 "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/restart.sh"
-wget -O speedtest "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/speedtest_cli.py"
-wget -O info "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/info.sh"
-wget -O about "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/about.sh"
-wget -O delete "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/delete.sh"
+wget -O menu "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/menu.sh"
+wget -O usernew "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/usernew.sh"
+wget -O trial "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/trial.sh"
+wget -O hapus "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/hapus.sh"
+wget -O cek "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/user-login.sh"
+wget -O member "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/user-list.sh"
+wget -O jurus69 "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/restart.sh"
+wget -O speedtest "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/speedtest_cli.py"
+wget -O info "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/info.sh"
+wget -O about "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/about.sh"
+wget -O delete "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/delete.sh"
 
 echo "0 0 * * * root /sbin/reboot" > /etc/cron.d/reboot
 
