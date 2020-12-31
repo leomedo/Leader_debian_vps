@@ -8,13 +8,13 @@ MYIP=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*
 MYIP2="s/xxxxxxxxx/$MYIP/g";
 
 # detail nama perusahaan
-country=ID
-state=Semarang
-locality=Jawa Tengah
-organization=hidessh
-organizationalunit=HideSSH
-commonname=hidessh.com
-email=admin@hidessh.com
+country=Egypt
+state=vps
+locality=JawaTengah
+organization=t.me/OpsEror
+organizationalunit=SLSSH
+commonname=LeoMedo
+email=mphamed.medoo@gmail.com
 
 # go to root
 cd
