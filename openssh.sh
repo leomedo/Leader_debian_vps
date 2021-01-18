@@ -65,6 +65,8 @@ echo "=================  install neofetch  ===================="
 echo "========================================================="
 # install neofetch
 apt-get update -y
+service apache2 stop
+apt-get install nginx -y
 apt-get -y install gcc
 apt-get -y install make
 apt-get -y install cmake
@@ -92,26 +94,21 @@ apt-get -y update
 
 # setting port ssh
 cd
+sed -i 's/Port 22/Port 22/g' /etc/ssh/sshd_config
 sed -i '/Port 22/a Port 143' /etc/ssh/sshd_config
-sed -i 's/#Port 22/Port 22/g' /etc/ssh/sshd_config
 /etc/init.d/ssh restart
 
 echo "================  install Dropbear ======================"
 echo "========================================================="
 
 # install dropbear
-apt-get -y install dropbear ssh
+apt-get -y install dropbear
 sed -i 's/NO_START\=1/NO_START\=0/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_PORT\=22/DROPBEAR_PORT\=442/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_EXTRA_ARGS\=/DROPBEAR_EXTRA_ARGS\=\"\-p 789 \-p 109\"/g' /etc/default/dropbear
-sed -i 's/#PermitRootLogin prohibit\-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
-sed -i 's/PermitRootLogin without\-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
-sed -i 's/#PermitRootLogin no/PermitRootLogin yes/g' /etc/ssh/sshd_config
-sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+sed -i 's/DROPBEAR_PORT\=22/DROPBEAR_PORT\=444/g' /etc/default/dropbear
+sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 444 -p 80 -p 109"/g' /etc/default/dropbear
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
-service dropbear start
-service sshd restart
+/etc/init.d/ssh restart
 /etc/init.d/dropbear restart
 
 echo "=================  install Squid3  ======================"
@@ -136,12 +133,12 @@ echo "========================================================="
 
 # install webmin
 cd
-#wget http://prdownloads.sourceforge.net/webadmin/webmin_1.910_all.deb
-#dpkg --install webmin_1.910_all.deb;
-#apt-get -y -f install;
-#sed -i 's/ssl=1/ssl=0/g' /etc/webmin/miniserv.conf
-#rm -f webmin_1.910_all.deb
-#/etc/init.d/webmin restart
+wget http://prdownloads.sourceforge.net/webadmin/webmin_1.910_all.deb
+dpkg --install webmin_1.910_all.deb;
+apt-get -y -f install;
+sed -i 's/ssl=1/ssl=0/g' /etc/webmin/miniserv.conf
+rm -f webmin_1.910_all.deb
+/etc/init.d/webmin restart
 
 echo "=================  install stunnel  ====================="
 echo "========================================================="
@@ -155,9 +152,6 @@ socket = a:SO_REUSEADDR=1
 socket = l:TCP_NODELAY=1
 socket = r:TCP_NODELAY=1
 [dropbear]
-accept = 443
-connect = 127.0.0.1:143
-[dropbear]
 accept = 222
 connect = 127.0.0.1:22
 [dropbear]
@@ -167,8 +161,8 @@ connect = 127.0.0.1:44
 accept = 777
 connect = 127.0.0.1:77
 [ssh]
-accept = 43
-connect = 127.0.0.1:543
+accept = 443
+connect = 127.0.0.1:43
 [python]
 accept = 69
 connect = 127.0.0.1:6969
