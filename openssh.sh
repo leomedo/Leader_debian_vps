@@ -232,6 +232,13 @@ echo "================= Auto Installer Disable badVPN V 2  =====================
 #chmod +x badudp2.sh
 #bash badudp2.sh
 
+
+echo "================  install OPENVPN  saya disable======================"
+echo "========================================================="
+# install openvpn debian 9 ( openvpn port 1194 dan 443 )
+wget https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/openvpn.sh && chmod +x openvpn.sh && bash openvpn.sh
+
+
 echo "================= Auto Installer Disable badVPN V 3  ======================"
 # buat directory badvpn
 cd /usr/bin
@@ -342,7 +349,7 @@ chown -R www-data:www-data /home/vps/public_html
 /etc/init.d/stunnel4 restart
 service squid restart
 /etc/init.d/nginx restart
-#/etc/init.d/openvpn restart
+/etc/init.d/openvpn restart
 rm -rf ~/.bash_history && history -c
 echo "unset HISTFILE" >> /etc/profile
 
@@ -399,11 +406,6 @@ wget -O /usr/local/bin/userdelexpired "https://www.dropbox.com/s/cwe64ztqk8w622u
 
 rm -f /root/openssh.sh
 
-echo "================  install OPENVPN  saya disable======================"
-echo "========================================================="
-# install openvpn debian 9 ( openvpn port 1194 dan 443 )
-#wget https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/openvpn.sh && chmod +x openvpn.sh && bash openvpn.sh
-
 echo "==================== Restart Service ===================="
 echo "========================================================="
 /etc/init.d/ssh restart
@@ -412,7 +414,7 @@ echo "========================================================="
 /etc/init.d/squid restart
 /etc/init.d/nginx restart
 # /etc/init.d/php5.6-fpm restart
-# /etc/init.d/openvpn restart
+/etc/init.d/openvpn restart
 
 # Delete script
 #rm -f /root/openvpn.sh
