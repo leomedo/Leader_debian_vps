@@ -100,13 +100,18 @@ echo "================  install Dropbear ======================"
 echo "========================================================="
 
 # install dropbear
-apt-get -y install dropbear
-sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=44/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 77 "/g' /etc/default/dropbear
+apt-get -y install dropbear ssh
+sed -i 's/NO_START\=1/NO_START\=0/g' /etc/default/dropbear
+sed -i 's/DROPBEAR_PORT\=22/DROPBEAR_PORT\=442/g' /etc/default/dropbear
+sed -i 's/DROPBEAR_EXTRA_ARGS\=/DROPBEAR_EXTRA_ARGS\=\"\-p 789 \-p 109\"/g' /etc/default/dropbear
+sed -i 's/#PermitRootLogin prohibit\-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
+sed -i 's/PermitRootLogin without\-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
+sed -i 's/#PermitRootLogin no/PermitRootLogin yes/g' /etc/ssh/sshd_config
+sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
-/etc/init.d/ssh restart
+service dropbear start
+service sshd restart
 /etc/init.d/dropbear restart
 
 echo "=================  install Squid3  ======================"
@@ -119,12 +124,12 @@ systemctl enable vnstat
 chkconfig vnstat on
 chown -R vnstat:vnstat /var/lib/vnstat
 
-# saya matikan install squid3
-# cd
-# apt-get -y install squid3
-# wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/squid3.conf"
-# sed -i $MYIP2 /etc/squid/squid.conf;
-# /etc/init.d/squid restart
+# install squid3
+cd
+apt-get -y install squid3
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/squid3.conf"
+sed -i $MYIP2 /etc/squid/squid.conf;
+/etc/init.d/squid restart
 
 echo "=================  saya matikan install Webmin  ======================"
 echo "========================================================="
@@ -150,6 +155,9 @@ socket = a:SO_REUSEADDR=1
 socket = l:TCP_NODELAY=1
 socket = r:TCP_NODELAY=1
 [dropbear]
+accept = 443
+connect = 127.0.0.1:143
+[dropbear]
 accept = 222
 connect = 127.0.0.1:22
 [dropbear]
@@ -160,7 +168,7 @@ accept = 777
 connect = 127.0.0.1:77
 [ssh]
 accept = 43
-connect = 127.0.0.1:143
+connect = 127.0.0.1:543
 [python]
 accept = 69
 connect = 127.0.0.1:6969
@@ -338,7 +346,7 @@ chown -R www-data:www-data /home/vps/public_html
 /etc/init.d/ssh restart
 /etc/init.d/dropbear restart
 /etc/init.d/stunnel4 restart
-#service squid restart
+service squid restart
 /etc/init.d/nginx restart
 #/etc/init.d/openvpn restart
 rm -rf ~/.bash_history && history -c
@@ -407,7 +415,7 @@ echo "========================================================="
 /etc/init.d/ssh restart
 /etc/init.d/dropbear restart
 /etc/init.d/stunnel4 restart
-# /etc/init.d/squid restart
+/etc/init.d/squid restart
 /etc/init.d/nginx restart
 # /etc/init.d/php5.6-fpm restart
 # /etc/init.d/openvpn restart
