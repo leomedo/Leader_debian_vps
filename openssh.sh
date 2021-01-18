@@ -94,8 +94,8 @@ apt-get -y update
 
 # setting port ssh
 cd
-sed -i 's/Port 22/Port 22/g' /etc/ssh/sshd_config
 sed -i '/Port 22/a Port 143' /etc/ssh/sshd_config
+sed -i 's/#Port 22/Port 22/g' /etc/ssh/sshd_config
 /etc/init.d/ssh restart
 
 echo "================  install Dropbear ======================"
@@ -133,12 +133,12 @@ echo "========================================================="
 
 # install webmin
 cd
-wget http://prdownloads.sourceforge.net/webadmin/webmin_1.910_all.deb
-dpkg --install webmin_1.910_all.deb;
-apt-get -y -f install;
-sed -i 's/ssl=1/ssl=0/g' /etc/webmin/miniserv.conf
-rm -f webmin_1.910_all.deb
-/etc/init.d/webmin restart
+# wget http://prdownloads.sourceforge.net/webadmin/webmin_1.910_all.deb
+# dpkg --install webmin_1.910_all.deb;
+# apt-get -y -f install;
+# sed -i 's/ssl=1/ssl=0/g' /etc/webmin/miniserv.conf
+# rm -f webmin_1.910_all.deb
+# /etc/init.d/webmin restart
 
 echo "=================  install stunnel  ====================="
 echo "========================================================="
