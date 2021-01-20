@@ -152,6 +152,9 @@ socket = a:SO_REUSEADDR=1
 socket = l:TCP_NODELAY=1
 socket = r:TCP_NODELAY=1
 [dropbear]
+accept = 443
+connect = 127.0.0.1:143
+[dropbear]
 accept = 222
 connect = 127.0.0.1:22
 [dropbear]
@@ -161,8 +164,8 @@ connect = 127.0.0.1:44
 accept = 777
 connect = 127.0.0.1:77
 [ssh]
-accept = 443
-connect = 127.0.0.1:43
+accept = 456
+connect = 127.0.0.1:56
 [python]
 accept = 69
 connect = 127.0.0.1:6969
