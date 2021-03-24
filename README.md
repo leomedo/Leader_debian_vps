@@ -1,7 +1,7 @@
 * Script Installasi SSH Debian 9 64bit
 --------
 ```
-wget https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/openssh.sh && chmod +x openssh.sh && bash openssh.sh
+sudo su && wget https://raw.githubusercontent.com/Me-D00/Leader_debian_vps/master/openssh.sh && chmod +x openssh.sh && bash openssh.sh
 ```
 
 * Script Installasi OpenVPN Debian 9 64bit
